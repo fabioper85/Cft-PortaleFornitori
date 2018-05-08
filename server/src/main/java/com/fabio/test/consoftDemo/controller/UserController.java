@@ -1,6 +1,9 @@
 package com.fabio.test.consoftDemo.controller;
 
+
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.http.converter.json.GsonHttpMessageConverter;
@@ -25,15 +28,19 @@ public class UserController
 	
 	@GetMapping("/users")
 	@CrossOrigin(origins = "http://localhost:4200")
-    public Collection<User> allUsers() {
-        return userRepo.findAll().stream().collect(Collectors.toList());
+    public List<User> allUsers() {
+		List<User> users = new ArrayList<>();
+        // return userRepo.findAll().stream().collect(Collectors.toList());
+		userRepo.findAll().forEach(users::add);
+		return users;
     }
 	
 	@GetMapping("/users/{id}")
 	@CrossOrigin(origins = "http://localhost:4200")
     public String getUser(@PathVariable String id) {
 		Gson gson = new Gson();
-        String json = gson.toJson(userRepo.findById(Integer.parseInt(id)).get());
+        // String json = gson.toJson(userRepo.findById(Integer.parseInt(id)).get());
+		String json = gson.toJson(userRepo.findById(Integer.parseInt(id)));
         return json;
     }
 }
