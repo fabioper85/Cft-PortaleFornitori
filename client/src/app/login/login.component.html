@@ -2,10 +2,12 @@
   <form>
     <h3>Area Login</h3>
     <div class="form-group">
-      <input [(ngModel)]="vat_num" class="form-control" placeholder="{{ vat_num}}">
+      <input class="form-control" type="text" placeholder="Immetti partita IVA" required>
     </div>
-    <p>Partita Iva n. {{ vat_num }}</p>
-    <button type="submit" class="btn btn-primary">Accedi</button>
+    <div class="form-group">
+      <input class="form-control" type="password" placeholder="Password" required>
+    </div>
+    <button type="submit" (click)="logUsers()" class="btn btn-primary">Accedi</button>
   </form>
 
   <ul class="login-tips">
