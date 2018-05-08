@@ -176,4 +176,12 @@ public class User
 	public void setQualificationNotes(String qualificationNotes) {
 		this.qualificationNotes = qualificationNotes;
 	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", company=" + company + ", companyNameNo=" + companyNameNo + ", vatNumber="
+				+ vatNumber + "]";
+	}
+	
+	
 }

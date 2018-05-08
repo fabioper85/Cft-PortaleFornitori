@@ -1,1 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    background: url('./assets/images/building.jpg'), #7A7C77;
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-position: center center;
+  }
