@@ -4,9 +4,10 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import com.fabio.test.consoftDemo.model.User;
+import com.fabio.test.consoftDemo.model.UserLogin;
 
 @RepositoryRestResource
-public interface UserRepository extends CrudRepository<User, Integer>{
+public interface LoginRepository extends CrudRepository<UserLogin, Integer>{
 	
-	public User getUserByVatNumber(String vatNumber);
+	public UserLogin getLoginByUser(User user);
 }

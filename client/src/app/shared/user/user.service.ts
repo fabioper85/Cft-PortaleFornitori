@@ -1,3 +1,5 @@
+import { User } from '../../models/user';
+import { HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
@@ -11,5 +13,9 @@ export class UserService {
 
   getAll(): Observable<any> {
     return this.http.get('//localhost:8080/users');
+  }
+  
+  getPassword(vatNum: string, password: string) {
+    return this.http.get('//localhost:8080/login/' + vatNum + '/' + password);
   }
 }

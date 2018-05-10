@@ -5,7 +5,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="VW_BodyRentalVendor")
@@ -48,7 +51,7 @@ public class User
 	@Column(name = "Fax_No")
 	private String faxNumber;
 	
-	@Column(name = "VAT_Registration_No")
+	@Column(name = "Vat_No")
 	private String vatNumber;
 	
 	@Column(name = "Blocked_Qualification")
@@ -56,6 +59,9 @@ public class User
 	
 	@Column(name = "Qualification_Notes")
 	private String qualificationNotes;	
+	
+	@OneToOne(mappedBy = "user")
+	private UserLogin login;
 
 	public int getId() {
 		return id;
@@ -176,12 +182,19 @@ public class User
 	public void setQualificationNotes(String qualificationNotes) {
 		this.qualificationNotes = qualificationNotes;
 	}
+	
+	@JsonIgnore
+	public UserLogin getLogin() {
+		return login;
+	}
+
+	public void setLogin(UserLogin login) {
+		this.login = login;
+	}
 
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", company=" + company + ", companyNameNo=" + companyNameNo + ", vatNumber="
 				+ vatNumber + "]";
 	}
-	
-	
 }

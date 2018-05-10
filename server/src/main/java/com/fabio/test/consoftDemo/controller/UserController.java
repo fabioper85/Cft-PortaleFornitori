@@ -2,9 +2,7 @@ package com.fabio.test.consoftDemo.controller;
 
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -41,15 +39,4 @@ public class UserController
 		String json = gson.toJson(userRepo.getUserByVatNumber(vatNum));
 		return json;
     }
-	
-	/*
-	@GetMapping("/users/{id}")
-	@CrossOrigin(origins = "http://localhost:4200")
-    public String getUser(@PathVariable String id) {
-		Gson gson = new Gson();
-        // String json = gson.toJson(userRepo.findById(Integer.parseInt(id)).get());
-		String json = gson.toJson(userRepo.findById(Integer.parseInt(id)));
-        return json;
-    }
-    */
 }
