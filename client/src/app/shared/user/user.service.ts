@@ -16,6 +16,10 @@ export class UserService {
   }
   
   getPassword(vatNum: string, password: string) {
-    return this.http.get('//localhost:8080/login/' + vatNum + '/' + password);
+    return this.http.get('//localhost:8080/login/' + vatNum, { params: { password : password } } );
+  }
+  
+  getPasswordPost(vatNum: string, password: string) {
+    return this.http.post('//localhost:8080/login/' + vatNum, password);
   }
 }

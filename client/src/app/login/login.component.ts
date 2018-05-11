@@ -12,6 +12,7 @@ export class LoginComponent implements OnInit {
   public vatNum: string;
   public password: string;
   public datiLogin;
+  public loggedIn = false;
   private usersList: Array<any>;
   private user: User;
 
@@ -31,6 +32,7 @@ export class LoginComponent implements OnInit {
   public checkLogin() {
     this.user.vatNum = this.vatNum;
     this.user.password = this.password;
-    this.userService.getPassword(this.vatNum, this.password).subscribe(data => console.log(data));
+    this.userService.getPassword(this.vatNum, this.password).subscribe(
+      data => console.log(data));
   }
 }

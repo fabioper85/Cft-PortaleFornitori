@@ -1,21 +1,28 @@
-<div class="login-area">
-  <form>
-    <h3>Area Login</h3>
-    <div class="form-group">
-      <input [(ngModel)]="vatNum" [ngModelOptions]="{standalone: true}" class="form-control" type="text" placeholder="Immetti partita IVA" required>
-    </div>
-    <div class="form-group">
-      <input [(ngModel)]="password" [ngModelOptions]="{standalone: true} "class="form-control" type="password" placeholder="Password" required>
-    </div>
-    <button type="submit" (click)="checkLogin()" class="btn btn-primary">Accedi</button>
-  </form>
-
-  <ul class="login-tips">
-    <li><a href="#">Registrazione come fornitore accreditato</a></li>
-    <li><a href="#">Recupero credenziali di accesso</a></li>
-  </ul>
-
+<div class="row">
+	<div class="col-lg-7"></div>
+	<div class="container col-lg-4">
+		<div class="login-area">
+		  <form>
+		    <h3>Area Login</h3>
+		    <div class="form-group">
+		      <input [(ngModel)]="vatNum" [ngModelOptions]="{standalone: true}" class="form-control" type="text" placeholder="Immetti partita IVA" required>
+		    </div>
+		    <div class="form-group">
+		      <input [(ngModel)]="password" [ngModelOptions]="{standalone: true}" class="form-control" type="password" placeholder="Password" required>
+		    </div>
+		    <button type="submit" (click)="checkLogin()" class="btn btn-primary">Accedi</button>
+		  </form>
+		
+		  <ul class="login-tips">
+		    <li><a routerLink="/registration-form">Registrazione come fornitore accreditato</a></li>
+		    <li><a href="#">Recupero credenziali di accesso</a></li>
+		  </ul>
+		</div>
+	</div>
+	<div class="col-lg-1"></div>
 </div>
+
+
 
 
 

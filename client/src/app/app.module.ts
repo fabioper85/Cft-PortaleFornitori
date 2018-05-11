@@ -13,6 +13,8 @@ import { MainSectionComponent } from './main-section/main-section.component';
 import { UserService } from './shared/user/user.service';
 import { HttpClientModule } from '@angular/common/http';
 import { UserListComponent } from './user-list/user-list.component';
+import { SupplierFormComponent } from './supplier-form/supplier-form.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -23,13 +25,24 @@ import { UserListComponent } from './user-list/user-list.component';
     DocsComponent,
     FooterComponent,
     MainSectionComponent,
-    UserListComponent
+    UserListComponent,
+    SupplierFormComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    RouterModule.forRoot([
+    {
+      path: '',
+      component: LoginComponent
+    },
+    {
+      path: 'registration-form',
+      component: SupplierFormComponent
+    }
+    ])
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
