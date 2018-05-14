@@ -1,4 +1,3 @@
-import { User } from '../models/user';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../shared/user/user.service';
 
@@ -11,15 +10,15 @@ export class LoginComponent implements OnInit {
   
   public vatNum: string;
   public password: string;
-  public datiLogin;
-  public loggedIn = false;
+  public firstAttempt = true;
+  public isLoggedIn = false;
+  public loginErr: any;
   private usersList: Array<any>;
-  private user: User;
+  
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService) {}
 
   ngOnInit() {
-    this.user = new User();
   }
 
   public logUsers() {
@@ -30,9 +29,7 @@ export class LoginComponent implements OnInit {
   }
   
   public checkLogin() {
-    this.user.vatNum = this.vatNum;
-    this.user.password = this.password;
-    this.userService.getPassword(this.vatNum, this.password).subscribe(
-      data => console.log(data));
+    this.firstAttempt = false;
+    this.userService.getPassword(this.vatNum, this.password).subscribe(data => this.loginErr = !data);
   }
 }

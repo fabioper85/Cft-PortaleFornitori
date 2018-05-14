@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-supplier-form',
@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SupplierFormComponent implements OnInit {
 
-  constructor() { }
+  private ragioneSociale: string;
+  constructor() {}
 
   ngOnInit() {
   }
-
+  
+  public log(event) {
+    console.log(event);
+  }
 }

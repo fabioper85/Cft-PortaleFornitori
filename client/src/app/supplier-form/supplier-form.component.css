@@ -1,4 +1,30 @@
-body
+.form-area {
+	color: #fff;
+}
+
+.form-area {
+	margin-top: 60px;
+}
+
+.form-check-label {
+	margin-right: 10px;
+}
+
+[class*=form-control]
 {
-	background: red;
+	color: #fff;
+	background: transparent;
+	border: none;
+	border-radius: 0;
+	border-bottom: 2px solid #fff;
+}
+
+[class*=form-control]:focus
+{
+	box-shadow: none;
+}
+
+.alert-danger
+{
+	
 }

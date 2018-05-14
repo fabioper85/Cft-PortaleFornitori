@@ -3,17 +3,40 @@
 	margin-top: 60px;
 }
 
+.col-lg-8
+{
+	margin: 0;
+	padding: 0;
+}
+
 .login-area {
   padding: 40px;
   /*background-color: rgb(128, 128, 128);*/
   background-color: #B0B1AB;
-  filter: drop-shadow(0 0 20px rgba(0,0,0,.6));
+  filter: drop-shadow(0 5px 20px rgba(0,0,0,.8));
+  border-radius: 4px;
 }
 
-.login-area h3 {
-  color: #7A7C77;
-  text-align: center;
-  margin-bottom: 20px;
+.login-area .title
+{
+	width: 80%;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.login-area .title h3 {
+	margin: 0;
+	padding: 0;
+	color: #333;
+	font-size: 2em;
+}
+
+.login-area .title i
+{
+	color: #333;
+	font-size: 2.5em;
 }
 
 .login-area ul
@@ -52,8 +75,11 @@
 
 .login-tips li a
 {
-  color: #fff;
-  transition: all .2s ease-in-out;
+	margin: 0;
+	padding: 0;
+	font-size: 12px;
+  	color: rgba(0,0,0,.4);
+  	transition: all .2s ease-in-out;
 }
 
 .login-tips li a:hover
@@ -66,4 +92,17 @@
 {
   margin-top: 40px;
   border: none;
+}
+
+.alert-success, .alert-danger
+{
+	text-align: center;
+	font-size: 12px;
+	font-weigth: bold;
+}
+
+.alert-success p,
+.alert-danger p
+{
+	margin-bottom: 0;
 }

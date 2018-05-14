@@ -1,8 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
+/* - - - - - - - - - - - - - - -
+
+COLORI AZIENDALI 
+
+Dark red: #741C1A
+
+Darker red: #2C0100
+
+Dark Gray:
+
+Light Gray: #B0B1AB
+
+- - - - - - - - - - - - - - - */
+
 body
 {
-	background: url('./assets/images/bg.jpg'), #4d5447;
+	/* #4d5447 */
+	background: url('./assets/images/bg.jpg'), rgba(116, 28, 26, 1);
 	background-blend-mode: multiply;
 	background-size: cover;
-	background-position: center center;
+	background-position: left center;
+	background-attachment: fixed;
 }
