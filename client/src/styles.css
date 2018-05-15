@@ -6,11 +6,22 @@ Dark red: #741C1A
 
 Darker red: #2C0100
 
-Dark Gray:
+Dark Gray: #7A7C77
 
 Light Gray: #B0B1AB
 
 - - - - - - - - - - - - - - - */
+
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+@import url('https://fonts.googleapis.com/css?family=Catamaran');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Arimo');
+@import url('https://fonts.googleapis.com/css?family=Rubik');
+
+*
+{
+	font-family: 'Rubik';
+}
 
 body
 {

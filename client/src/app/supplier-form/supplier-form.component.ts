@@ -6,8 +6,7 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./supplier-form.component.css']
 })
 export class SupplierFormComponent implements OnInit {
-
-  private ragioneSociale: string;
+  
   constructor() {}
 
   ngOnInit() {

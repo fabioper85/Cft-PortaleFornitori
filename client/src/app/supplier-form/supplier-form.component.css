@@ -1,22 +1,107 @@
-.form-area {
+.container
+{
+	line-height: 1;
+	margin-top: 60px;
+}
+
+.container small
+{
+	color: rgba(255,255,255,.8);
+}
+
+.container h1
+{
+	margin-bottom: 20px;
+	text-align: center;
 	color: #fff;
+	filter: drop-shadow(0 0 10px rgba(0,0,0,.7));
+}
+
+.alert-warning
+{
+	text-align: center;
+	margin-top: 40px;
+	font-size: .9em;
+	filter: drop-shadow(0 0 6px rgba(0,0,0,.8));
+}
+
+.alert-danger
+{
+	margin-top: 20px;
+}
+
+.row
+{
+	margin-bottom: 40px;
 }
 
 .form-area {
+	color: #fff;
 	margin-top: 60px;
+}
+
+.form-area .title
+{
+	color: #333;
+	text-align: center;
+	border-top: 5px solid #741C1A;
+	border-radius: 0px 0px 4px 4px;
+	/* background-color: #B0B1AB; */
+	background-color: #eee;
+	padding: 10px;
+	width: 30%;
+	margin-bottom: 30px;
+	filter: drop-shadow(0 0 6px rgba(0,0,0,.8));
 }
 
 .form-check-label {
 	margin-right: 10px;
 }
 
+.form-group
+{
+	position: relative;
+}
+
+.form-group input[type=text]
+{
+	font-family: 'Quicksand';
+	font-size: 1.3em;
+	padding: 15px;
+	padding-left: 60px;
+}
+
+.form-group [class=material-icons]
+{
+	position: absolute;
+	left: 10px;
+	top: 15px;
+	padding: 20px;
+	font-size: 2.1em;
+	transition: all .2s ease-in-out;
+	transform-origin: center;
+	color: rgba(255,255,255,.5);
+}
+
+.form-group input[type=text]:focus + [class=material-icons]
+{
+	left: -5px;
+	color: rgba(255,255,255,1);
+}
+
+.form-group input[type=text]:focus
+{
+	border-color: rgba(255,255,255,1);
+}
+	
 [class*=form-control]
 {
 	color: #fff;
 	background: transparent;
 	border: none;
 	border-radius: 0;
-	border-bottom: 2px solid #fff;
+	border-bottom: 2px solid rgba(255,255,255,.5);
+	transition: all .2s ease-in-out;
 }
 
 [class*=form-control]:focus
@@ -27,4 +112,37 @@
 .alert-danger
 {
 	
+}
+
+.btn-primary
+{
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 30%;
+	padding: 10px 30px;
+	color: #fff;
+	background-color: #741C1A;
+	cursor: pointer;
+	border: none;
+	margin-top: 50px;
+}
+
+.btn-primary:hover
+{
+	background-color: #2C0100;
+}
+
+.btn-primary[disabled]
+{
+	padding: 10px 30px;
+	color: #fff;
+	background-color: #B0B1AB;
+	cursor: not-allowed;
+	border: none;
+}
+
+.valid
+{
+	color: #FB8C00;
 }

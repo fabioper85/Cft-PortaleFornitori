@@ -1,25 +1,97 @@
-<div class="container form-area">
+<div class="container">
 	<h1>Accreditamento fornitore</h1>
-	<p>Compilando il Questionario acconsentite al trattamento dei dati
-		personali (Codice in materia di protezione dei dati personali- art. 13
-		D. Lgs. 196/2003)</p>
-	<form>
-		<div class="form-group">
-			<label for="ragioneSociale">Ragione / Denominazione sociale</label>
-			<input
-				ngModel name="ragioneSociale" #ragioneSociale="ngModel" (change)="log(ragioneSociale)"
-				type="text" class="form-control" id="ragioneSociale" required>
+
+	<small>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+		Duis in egestas augue. Mauris eget orci tempor, volutpat dolor eget,
+		pretium nisl. Vestibulum vitae metus non mauris ultrices luctus vitae
+		a risus. Phasellus eget dignissim eros. Vivamus tempus maximus erat
+		sed ultricies. Curabitur est ante, porta maximus placerat eu,
+		porttitor id orci. Maecenas sit amet auctor arcu. Etiam porttitor
+		porta ornare. Nullam sollicitudin eget est ac tempor. Aenean sit amet
+		sollicitudin odio. Vivamus nunc ligula, efficitur vitae maximus eu,
+		viverra non augue. In justo purus, blandit vitae magna a, dictum
+		pharetra orci. Curabitur gravida leo ac ex interdum accumsan. Proin a
+		odio nisl. Morbi scelerisque libero vel arcu aliquam sagittis. </small>
+
+	<div class="alert alert-warning" role="alert">Compilando il
+		questionario acconsentite al trattamento dei dati personali (Codice in
+		materia di protezione dei dati personali- art. 13 D. Lgs. 196/2003)</div>
+	<form class="form-area" #form="ngForm">
+		<h4 class="title">Anagrafica fornitore</h4>
+		<div class="row">
+			<div class="form-group col-lg-6 col-md-6">
+				<label for="ragioneSociale">Ragione / Denominazione sociale
+					*</label> <input ngModel name="ragioneSociale" #ragioneSociale="ngModel"
+					type="text" class="form-control" id="ragioneSociale"
+					(change)="log(ragioneSociale)" required>
+					<i class="material-icons">account_box</i>
+					
+				<div class="alert alert-danger"
+					*ngIf="ragioneSociale.touched && !ragioneSociale.valid">
+					Il campo "Ragione / Denominazione sociale" &egrave; obbligatorio
+				</div>
+			</div>
 		</div>
-		<div class="alert alert-danger" *ngIf="ragioneSociale.touched && !ragioneSociale.valid">Nome è richiesto</div>
-		<div class="form-check form-check-inline">
-			<label class="form-check-label" for="form_label_1">Liberi
-				professionisti</label> <input class="form-check-input" type="radio"
-				name="inlineRadioOptions" id="form_label_1" value="option1">
+		<div class="row">
+			<div class="form-group col-lg-6 col-md-6">
+				<label for="indirizzo">Indirizzo sede legale <small>(via,
+					numero civico, cap, citt&agrave;, prov.)</small> *</label>
+				<input ngModel name="indirizzo"
+					#indirizzo="ngModel" type="text" class="form-control"
+					id="indirizzo" (change)="log(indirizzo)"
+					[ngClass]="{'valid': indirizzo.valid}" required>
+					<i class="material-icons">business</i>
+				<div class="alert alert-danger"
+					*ngIf="indirizzo.touched && !indirizzo.valid">Il campo "Indirizzo sede legale" &egrave; un
+					campo obbligatorio</div>
+			</div>
+			<div class="form-group col-lg-6 col-md-6">
+				<label for="indirizzoOperativo">Indirizzo sede operativa <small>(via,
+					numero civico, cap, citt&agrave;, prov.)</small> *</label> <input ngModel name="indirizzoOperativo"
+					#indirizzoOperativo="ngModel" type="text" class="form-control"
+					id="indirizzoOperativo" (change)="log(indirizzoOperativo)" required>
+					<i class="material-icons">location_on</i>
+				<div class="alert alert-danger"
+					*ngIf="indirizzoOperativo.touched && !indirizzoOperativo.valid">Il campo "Indirizzo sede operativa" &egrave; un
+					campo obbligatorio</div>
+			</div>
 		</div>
-		<div class="form-check form-check-inline">
-			<label class="form-check-label" for="form_label_2">Società</label> <input
-				class="form-check-input" type="radio" name="inlineRadioOptions"
-				id="form_label_2" value="option2">
+		<h4 class="title">Contatti</h4>
+		<div class="row">
+			<div class="form-group col-lg-4 col-md-4">
+				<label for="telefono">Telefono *</label>
+				<input ngModel name="telefono"
+					#telefono="ngModel" type="text" class="form-control"
+					id="telefono" (change)="log(telefono)" required>
+					<i class="material-icons">phone</i>
+				<div class="alert alert-danger"
+					*ngIf="telefono.touched && !telefono.valid">
+					Il campo "Telefono" &egrave; obbligatorio
+				</div>
+			</div>
+			<div class="form-group col-lg-4 col-md-4">
+				<label for="fax">Fax *</label>
+				<input ngModel name="fax"
+					#fax="ngModel" type="text" class="form-control"
+					id="fax" (change)="log(fax)" required>
+					<i class="material-icons">local_printshop</i>
+				<div class="alert alert-danger"
+					*ngIf="fax.touched && !fax.valid">
+					Il campo "Fax" &egrave; obbligatorio
+				</div>
+			</div>
+			<div class="form-group col-lg-4 col-md-4">
+				<label for="email">Email *</label>
+				<input ngModel name="email"
+					#email="ngModel" type="text" class="form-control"
+					id="email" (change)="log(email)" required>
+					<i class="material-icons">email</i>
+				<div class="alert alert-danger"
+					*ngIf="email.touched && !email.valid">
+					Il campo "Email" &egrave; obbligatorio
+				</div>
+			</div>
 		</div>
+		<button [disabled]="!form.form.valid" class="btn btn-primary">Invia</button>
 	</form>
 </div>
