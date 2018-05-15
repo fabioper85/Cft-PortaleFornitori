@@ -7,6 +7,9 @@ import {Component, OnInit} from '@angular/core';
 })
 export class SupplierFormComponent implements OnInit {
   
+  public ragioneSociale = 'Ciccio';
+  public selectedFiles = null;
+  
   constructor() {}
 
   ngOnInit() {
@@ -14,5 +17,15 @@ export class SupplierFormComponent implements OnInit {
   
   public log(event) {
     console.log(event);
+  }
+  
+  public submit(event) {
+    console.log(event.target[0].value);
+    this.ragioneSociale = event.target[0].value;
+  }
+  
+  public set(event1, event2) {
+    event1.checked = true;
+    event2.checked = false;
   }
 }
