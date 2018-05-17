@@ -159,14 +159,51 @@
 	display: flex;
 	justify-content: space-around;
 	border-top: 5px solid rgba(151, 56, 54,1);
-	border-radius: 0px 0px 4px 4px;
+	border-radius: 0;
+	/* background-color: #B0B1AB; */
+	background-color: #eee;
+	padding: 2% 6%;
+	width: 70%;
+	margin: 0 auto;
+	/* filter: drop-shadow(0 0 6px rgba(0,0,0,.8)); */
+}
+
+.form-area .docsArea
+{
+	color: #333;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	border-radius: 0 0 4px 4px;
+	border-top: 1px solid rgba(151, 56, 54,1);
 	/* background-color: #B0B1AB; */
 	background-color: #eee;
 	padding: 2% 6%;
 	width: 70%;
 	margin: 0 auto;
 	margin-bottom: 60px;
-	filter: drop-shadow(0 0 6px rgba(0,0,0,.8));
+	/* filter: drop-shadow(0 0 6px rgba(0,0,0,.8)); */
+}
+
+.form-area .docsArea .row
+{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	margin: 5px;
+}
+
+.form-area .docsArea p
+{
+	margin: 0;
+	padding: 0;
+}
+
+.form-area .docsArea .custom-file
+{
+	width: 70%;
 }
 
 @media screen and (max-width:600px)
