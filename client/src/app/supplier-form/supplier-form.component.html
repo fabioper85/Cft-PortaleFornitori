@@ -19,29 +19,15 @@
 		(Codice in materia di protezione dei dati personali- art. 13 D. Lgs. 196/2003)
 	</div>
 	
-	<form class="form-area" #form="ngForm" (ngSubmit)="submit($event)">
+	<form [formGroup]="supplierForm" (ngSubmit)="log()" class="form-area">
 	
 		<h4 class="title">Anagrafica fornitore</h4>
 		
 		<div class="row">
 			<div class="form-group col-lg-6 col-md-6">
-				<label for="ragioneSociale">Ragione / Denominazione sociale *</label>
-				<input 
-					ngModel 
-					name="ragioneSociale" 
-					#ragioneSociale="ngModel"
-					type="text" 
-					class="form-control" 
-					id="ragioneSociale"
-					(change)="log(ragioneSociale)" 
-					required >
-					
-					<i class="material-icons">account_box</i>
-					
-				<div class="alert alert-danger"
-					*ngIf="ragioneSociale.touched && !ragioneSociale.valid">
-					Il campo "Ragione / Denominazione sociale" &egrave; obbligatorio
-				</div>
+				<label>Ragione / Denominazione sociale *</label>
+				<input type="text" class="form-control" formControlName="ragioneSociale">
+				<i class="material-icons">account_box</i>
 			</div>
 		</div>
 		
@@ -49,123 +35,41 @@
 		
 		<div class="row">
 			<div class="form-group col-lg-6 col-md-6">
-				<label for="indirizzo">
+				<label>
 					Indirizzo sede legale <small>(via, numero civico, cap, citt&agrave;, prov.)</small> *
 				</label>
-				<input 
-					ngModel 
-					name="indirizzo"
-					#indirizzo="ngModel" 
-					type="text" 
-					class="form-control"
-					id="indirizzo" 
-					(change)="log(indirizzo)"
-					[ngClass]="{'valid': indirizzo.valid}" 
-					required >
-					
-					<i class="material-icons">business</i>
-					
-				<div class="alert alert-danger"
-					*ngIf="indirizzo.touched && !indirizzo.valid">
-					Il campo "Indirizzo sede legale" &egrave; un campo obbligatorio
-				</div>
-				
-			</div>
+				<input type="text" class="form-control" formControlName="sedeLegale">
+				<i class="material-icons">business</i>
+            </div>
+            
 			<div class="form-group col-lg-6 col-md-6">
-				<label for="indirizzoOperativo">
+				<label>
 					Indirizzo sede operativa <small>(via, numero civico, cap, citt&agrave;, prov.)</small> *
 				</label>
-				<input 
-					ngModel 
-					name="indirizzoOperativo"
-					#indirizzoOperativo="ngModel" 
-					type="text" class="form-control"
-					id="indirizzoOperativo" 
-					(change)="log(indirizzoOperativo)"
-					[ngClass]="{'valid': indirizzoOperativo.valid}" 
-					required >
-					
-					<i class="material-icons">location_on</i>
-					
-				<div class="alert alert-danger"
-					*ngIf="indirizzoOperativo.touched && !indirizzoOperativo.valid">
-					Il campo "Indirizzo sede operativa" &egrave; un campo obbligatorio
-				</div>
-				
+				<input type="text" class="form-control" formControlName="sedeOperativa">
+				<i class="material-icons">location_on</i>
 			</div>
 		</div>
 		
 		<!-- DATI FISCALI -->
 		
 		<div class="row">
-		
 			<div class="form-group col-lg-4 col-md-4">
-			
-				<label for="telefono">Data inizio attivit&agrave; *</label>
-				<input 
-					ngModel 
-					name="dataIA"
-					#dataIA="ngModel" 
-					type="date" 
-					class="form-control"
-					id="dataIA" 
-					(change)="log(dataIA)" 
-					required >
-				
-					<i class="material-icons">date_range</i>
-					
-				<div class="alert alert-danger"
-					*ngIf="dataIA.touched && !dataIA.valid">
-					Il campo "Telefono" &egrave; obbligatorio
-				</div>
-				
+				<label>Data inizio attivit&agrave; *</label>
+				<input type="date" class="form-control" formControlName="dataInizioAttività">
+				<i class="material-icons">date_range</i>
 			</div>
 			
 			<div class="form-group col-lg-4 col-md-4">
-				<label for="fax">Codice fiscale *</label>
-				<input 
-					ngModel 
-					name="cf"
-					#cf="ngModel" 
-					type="text" 
-					class="form-control"
-					id="cf"
-					minlength="16"
-					(change)="log(cf)" 
-					required >
-				
-					<i class="material-icons"><!--  --></i>
-					
-				<div class="alert alert-danger"
-					*ngIf="cf.touched && !cf.valid">
-					Il campo <span class="campo">Codice fiscale"</span> <br>- &egrave; obbligatorio<br>
-					<div *ngIf="cf.errors.minlength">
-						- deve contenere almeno {{cf.errors.minlength.requiredLength}} caratteri!
-					</div>
-				</div>
-				
+				<label>Partita IVA *</label>
+				<input type="text" class="form-control" formControlName="partitaIVA">
+				<i class="material-icons">work</i>
 			</div>
 			
 			<div class="form-group col-lg-4 col-md-4">
-			
-				<label for="email">Partita IVA *</label>
-				<input
-					ngModel 
-					name="vatNum"
-					#vatNum="ngModel" 
-					type="text" 
-					class="form-control"
-					id="vatNum" 
-					(change)="log(vatNum)" 
-					required >
-					
-					<i class="material-icons"><!--  --></i>
-					
-				<div class="alert alert-danger"
-					*ngIf="vatNum.touched && !vatNum.valid">
-					Il campo <span class="campo">"Partita IVA"</span> &egrave; obbligatorio
-				</div>
-					
+				<label>Codice Fiscale *</label>
+				<input type="text" class="form-control" formControlName="codiceFiscale">
+				<i class="material-icons">credit_card</i>	
 			</div>
 		</div>
 		<!-- CONTATTI -->
@@ -173,160 +77,88 @@
 		<h4 class="title">Contatti</h4>
 		
 		<div class="row">
-		
 			<div class="form-group col-lg-4 col-md-4">
-			
-				<label for="telefono">Telefono *</label>
-				<input 
-					ngModel 
-					name="telefono"
-					#telefono="ngModel" 
-					type="text" 
-					class="form-control"
-					id="telefono" 
-					(change)="log(telefono)" 
-					required >
-				
-					<i class="material-icons">phone</i>
-					
-				<div class="alert alert-danger"
-					*ngIf="telefono.touched && !telefono.valid">
-					Il campo "Telefono" &egrave; obbligatorio
-				</div>
-				
+				<label>Telefono *</label>
+				<input type="text" class="form-control" formControlName="telNumero">
+				<i class="material-icons">phone</i>
 			</div>
 			
 			<div class="form-group col-lg-4 col-md-4">
-				<label for="fax">Fax *</label>
-				<input 
-					ngModel 
-					name="fax"
-					#fax="ngModel" 
-					type="text" 
-					class="form-control"
-					id="fax" 
-					(change)="log(fax)" 
-					required >
-				
-					<i class="material-icons">local_printshop</i>
-					
-				<div class="alert alert-danger"
-					*ngIf="fax.touched && !fax.valid">
-					Il campo "Fax" &egrave; obbligatorio
-				</div>
-				
+				<label>Fax *</label>
+				<input type="text" class="form-control" formControlName="faxNumero">
+				<i class="material-icons">local_printshop</i>
 			</div>
 			
 			<div class="form-group col-lg-4 col-md-4">
-			
-				<label for="email">Email *</label>
-				<input
-					ngModel 
-					name="email"
-					#email="ngModel" 
-					type="email" 
-					class="form-control"
-					id="email" 
-					(change)="log(email)" 
-					required 
-					pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" >
-					
-					<i class="material-icons">email</i>
-					
-				<div class="alert alert-danger"
-					*ngIf="email.touched && email.errors.required">
-					Il campo "Email" &egrave; obbligatorio
-				</div>
-				
-				<div class="alert alert-danger"
-					*ngIf="email.touched && email.errors.pattern">
-					Valori non consentiti per il campo "Email"
-				</div>
+				<label>Email *</label>
+				<input type="email" class="form-control" formControlName="email">
+				<i class="material-icons">email</i>
 			</div>
 		</div>
 		
 		<div class="row userChoice">
-		
+
 			<div class="form-check form-check-inline">
-			
-			  <label class="form-check-label" for="freelance">Libero professionista</label>
-			  
-			  <input 
-			  	class="form-check-input" 
-			  	type="radio" 
-			  	name="freelance" 
-			  	id="freelance" 
-			  	value="freelance"
-			  	#freelance
-			  	(click)="set(freelance, society)" checked>
+			  <label class="form-check-label">Libero professionista</label>
+			  <input class="form-check-input" type="radio" formControlName="tipoFornitore" value="PIVA">
 			</div>
 			
 			<div class="form-check form-check-inline">
-			
-			  <label class="form-check-label" for="azienda">Societ&agrave;</label>
-			  
-			  <input 
-			  	class="form-check-input" 
-			  	type="radio" 
-			  	name="azienda" 
-			  	id="azienda" 
-			  	value="azienda"
-			  	#society
-			  	(click)="set(society, freelance)">
-			</div>
-		</div>
-			
-		<div *ngIf="freelance.checked" class="docsArea">
-			<!-- Freelance c'&egrave; -->
-			<div class="row">
-				<p>Curriuculm Vitae</p>
-				<div class="custom-file">
-					<input type="file" class="custom-file-input" id="customFile1" lang="it">
-					<label class="custom-file-label" for="customFile1">Scegli file</label>
-				</div>
-			</div>
-			<div class="row">
-				<p>Visura Camerale</p>
-				<div class="custom-file">
-					<input type="file" class="custom-file-input" id="customFile2" lang="it">
-					<label class="custom-file-label" for="customFile2">Scegli file</label>
-				</div>
-			</div>
-			<div class="row">
-				<p>UNI ISO 9001</p>
-				<div class="custom-file">
-					<input type="file" class="custom-file-input" id="customFile3" lang="it">
-					<label class="custom-file-label" for="customFile3">Scegli file</label>
-				</div>
-			</div>
-		</div>
-		
-		<div *ngIf="society.checked" class="docsArea">
-			Societ&agrave; c'&egrave;
-		</div>
-		
-			
-		
-		
-		<!-- FILES UPLOAD 
-		
-		<div class="row">
-		
-		  <div class="form-group">
-		  
-		    <label for="files">Example file input</label>
-		    <input 
-		    	type="file" 
-		    	name="file"
-		    	class="form-control-file" 
-		    	id="files"
-		    	multiple="multiple"
-		    	required >
-		  </div>
-		</div>
-		-->
-		
-		<button [disabled]="form.form.invalid" class="btn btn-primary">Invia</button>
+              <label class="form-check-label">Societ&agrave; con dipendenti</label>
+              <input class="form-check-input" type="radio" formControlName="tipoFornitore" value="SOC">
+            </div>
+            
+        </div>
+
+        <div *ngIf="supplierForm.controls['tipoFornitore'].value == 'SOC'" class="docsArea">
+            <div formGroupName="partitaIVADocs">
+                <div class="row">
+                    <h1>Società</h1>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="supplierForm.controls['tipoFornitore'].value == 'PIVA'">
+            <div formGroupName="partitaIVADocs" class="docsArea">
+                <div class="row">
+                    <label class="col-lg-4 col-md-4 col-sm-12">Questionario firmato</label>
+                    <input 
+                        type="file" 
+                        class="col-lg-8 col-md-8 col-sm-12" 
+                        formControlName="questionario">
+                </div>
+                <div class="row">
+                    <label class="col-lg-4 col-md-4 col-sm-12">Documento d'identità</label>
+                    <input 
+                        type="file" 
+                        class="col-lg-8 col-md-8 col-sm-12" 
+                        formControlName="docIdentità">
+                </div>
+                <div class="row">
+                    <label class="col-lg-4 col-md-4 col-sm-12">Curriculum Vitae</label>
+                    <input 
+                        type="file" 
+                        class="col-lg-8 col-md-8 col-sm-12" 
+                        formControlName="curriculum">
+                </div>
+                <div class="row">
+                    <label class="col-lg-4 col-md-4 col-sm-12">Fotografia</label>
+                    <input 
+                        type="file" 
+                        class="col-lg-8 col-md-8 col-sm-12" 
+                        formControlName="foto">
+                </div>
+                <div class="row">
+                    <label class="col-lg-4 col-md-4 col-sm-12">Visura Camerale</label>
+                    <input 
+                        type="file" 
+                        class="col-lg-8 col-md-8 col-sm-12" 
+                        formControlName="visuraCamerale">
+                </div>
+            </div>
+        </div>
+        
+		<button [disabled]="!supplierForm.valid" class="btn btn-primary">Invia</button>
 		
 	</form>
 </div>

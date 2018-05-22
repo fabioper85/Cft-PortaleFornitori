@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
@@ -28,6 +28,7 @@ import { DocsAreaComponent } from './docs-area/docs-area.component';
   imports: [
     BrowserModule,
     HttpClientModule,
+    ReactiveFormsModule,
     FormsModule,
     NgbModule.forRoot(),
     RouterModule.forRoot([
@@ -36,7 +37,7 @@ import { DocsAreaComponent } from './docs-area/docs-area.component';
       component: LoginComponent
     },
     {
-      path: 'registration-form',
+      path: 'registration',
       component: SupplierFormComponent
     }
     ])
