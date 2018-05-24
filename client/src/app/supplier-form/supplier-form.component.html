@@ -19,7 +19,7 @@
 		(Codice in materia di protezione dei dati personali- art. 13 D. Lgs. 196/2003)
 	</div>
 	
-	<form [formGroup]="supplierForm" (ngSubmit)="log()" class="form-area">
+	<form [formGroup]="supplierForm" (ngSubmit)="submit($event)" class="form-area">
 	
 		<h4 class="title">Anagrafica fornitore</h4>
 		
@@ -100,26 +100,19 @@
 
 			<div class="form-check form-check-inline">
 			  <label class="form-check-label">Libero professionista</label>
-			  <input class="form-check-input" type="radio" formControlName="tipoFornitore" value="PIVA">
+			  <input class="form-check-input" type="radio" formControlName="tipoFornitore" value="PIVA" (change)="activate(supplierForm.controls['tipoFornitore'].value)">
 			</div>
 			
 			<div class="form-check form-check-inline">
               <label class="form-check-label">Societ&agrave; con dipendenti</label>
-              <input class="form-check-input" type="radio" formControlName="tipoFornitore" value="SOC">
+              <input class="form-check-input" type="radio" formControlName="tipoFornitore" value="SOC" (change)="activate(supplierForm.controls['tipoFornitore'].value)">
             </div>
             
         </div>
 
-        <div *ngIf="supplierForm.controls['tipoFornitore'].value == 'SOC'" class="docsArea">
-            <div formGroupName="partitaIVADocs">
-                <div class="row">
-                    <h1>Società</h1>
-                </div>
-            </div>
-        </div>
-
+        
         <div *ngIf="supplierForm.controls['tipoFornitore'].value == 'PIVA'">
-            <div formGroupName="partitaIVADocs" class="docsArea">
+            <div formGroupName="partitaIvaDocs" class="docsArea">
                 <div class="row">
                     <label class="col-lg-4 col-md-4 col-sm-12">Questionario firmato</label>
                     <input 
@@ -154,6 +147,60 @@
                         type="file" 
                         class="col-lg-8 col-md-8 col-sm-12" 
                         formControlName="visuraCamerale">
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="supplierForm.controls['tipoFornitore'].value == 'SOC'">
+
+            <div formGroupName="societàDocs" class="docsArea">
+
+                <div class="row">
+                    <label class="col-lg-4 col-md-4 col-sm-12">Questionario firmato</label>
+                    <input 
+                        type="file" 
+                        class="col-lg-8 col-md-8 col-sm-12" 
+                        formControlName="questionario">
+                </div>
+
+                <div class="row">
+                    <label class="col-lg-4 col-md-4 col-sm-12">Visura Camerale</label>
+                    <input 
+                        type="file" 
+                        class="col-lg-8 col-md-8 col-sm-12" 
+                        formControlName="visuraCamerale">
+                </div>
+                
+                <div class="row">
+                    <label class="col-lg-4 col-md-4 col-sm-12">UNI EN - ISO 9001</label>
+                    <input 
+                        type="file" 
+                        class="col-lg-8 col-md-8 col-sm-12" 
+                        formControlName="iso9001">
+                </div>
+
+                <div class="row">
+                    <label class="col-lg-4 col-md-4 col-sm-12">Polizza RCT/RCO</label>
+                    <input 
+                        type="file" 
+                        class="col-lg-8 col-md-8 col-sm-12" 
+                        formControlName="polizzaRctRco">
+                </div>
+
+                <div class="row">
+                    <label class="col-lg-4 col-md-4 col-sm-12">DURC</label>
+                    <input 
+                        type="file" 
+                        class="col-lg-8 col-md-8 col-sm-12" 
+                        formControlName="durc">
+                </div>
+
+                <div class="row">
+                    <label class="col-lg-4 col-md-4 col-sm-12">Ultimo bilancio disponibile</label>
+                    <input 
+                        type="file" 
+                        class="col-lg-8 col-md-8 col-sm-12" 
+                        formControlName="bilancio">
                 </div>
             </div>
         </div>

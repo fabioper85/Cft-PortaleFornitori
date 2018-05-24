@@ -133,11 +133,13 @@
 
 .btn-primary
 {
+	text-align: center;
 	position: absolute;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	width: 30%;
-	padding: 10px 30px;
+	border-radius: 50px;
+	width: 20%;
+	padding: 1.1em 2.3em;
 	color: #fff;
 	background-color: #741C1A;
 	cursor: pointer;
@@ -152,16 +154,11 @@
 
 .btn-primary[disabled]
 {
-	padding: 10px 30px;
 	color: #fff;
 	background-color: #B0B1AB;
+	background-color: transparent;
+	border: 2px solid #ddd;
 	cursor: not-allowed;
-	border: none;
-}
-
-.valid
-{
-	color: rgba(92,210,50,1);
 }
 
 .form-area .userChoice
@@ -220,7 +217,7 @@
 	margin: 0;
 }
 
-.form-area .docsArea .row > input[type=file]
+.form-area .docsArea .row > input
 {
     height: 2.25rem;
     padding: 0.275rem 0.75rem;
@@ -232,9 +229,50 @@
 
 @media screen and (max-width:600px)
 {
+	.container
+	{
+		width: 80%;
+	}
+
 	.form-area .title
 	{
 		width: 50%;
 		font-size: 1em;
+	}
+
+	.form-area .row
+	{
+		margin-bottom: 70px;
+	}
+
+	.btn-primary
+	{
+		position: relative;
+		width: 50%;
+	}
+
+	.form-check-inline
+	{
+		margin: 12px;
+	}
+
+	.form-area .docsArea .row > label
+	{
+		margin: 20px;
+		text-align: center;
+	}
+
+	.form-area .docsArea .row > input
+	{
+		border: none;
+		font-size: 13px;
+		width: 100%;
+	}
+
+	.form-area .userChoice,
+	.form-area .docsArea
+	{
+		margin-bottom: 0;
+		width: 100%;
 	}
 }
