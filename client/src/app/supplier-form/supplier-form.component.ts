@@ -103,7 +103,7 @@ export class SupplierFormComponent implements OnInit {
 
   createBg() {
     document.body.style.backgroundImage = 'url("../../assets/images/building02.jpg")';
-    document.body.style.backgroundColor = '#222';
+    document.body.style.backgroundColor = '#333';
     document.body.style.backgroundPosition = 'center center';
     document.body.style.backgroundRepeat = 'no-repeat';
     document.body.style.backgroundAttachment = 'fixed';

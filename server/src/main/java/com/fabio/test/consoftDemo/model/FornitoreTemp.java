@@ -2,6 +2,9 @@ package com.fabio.test.consoftDemo.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+
+import java.sql.Time;
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.Objects;
 
