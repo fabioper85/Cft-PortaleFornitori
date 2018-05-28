@@ -22,7 +22,7 @@ export class SupplierFormComponent implements OnInit {
   }
 
   submit(event) {
-    console.log(event);
+    console.log(event.target[3].valueAsDate.getUTCDate());
     this.http.post('http://localhost:8080/fornitoriTemp', this.createFormData(event))
       .subscribe(data => console.log(data));
     /*

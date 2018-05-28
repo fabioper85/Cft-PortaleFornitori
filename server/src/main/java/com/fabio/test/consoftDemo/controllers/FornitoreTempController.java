@@ -4,6 +4,8 @@ import com.fabio.test.consoftDemo.model.FornitoreTemp;
 import com.fabio.test.consoftDemo.repo.FornitoreRepo;
 import com.fabio.test.consoftDemo.services.FornitoreTempService;
 import com.fabio.test.consoftDemo.services.UploadFileService;
+
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,7 +34,7 @@ public class FornitoreTempController {
 
     @PostMapping("/fornitoriTemp")
     @CrossOrigin(origins = "http://localhost:4200")
-    public String addFornitoreTemp(
+    public void addFornitoreTemp(
             @RequestParam("ragioneSociale") String ragSoc,
             @RequestParam("sedeLegale") String sedeLegale,
             @RequestParam("sedeOperativa") String sedeOperativa,
@@ -42,7 +44,8 @@ public class FornitoreTempController {
             @RequestParam("telNumero") String telNumero,
             @RequestParam("faxNumero") String faxNumero,
             @RequestParam("email") String email,
-            @RequestParam("docs[]") MultipartFile[] files)
+            @RequestParam("docs[]") MultipartFile[] files,
+            HttpServletResponse response)
     {
 
         try
@@ -63,12 +66,16 @@ public class FornitoreTempController {
             // SAVE FILES
 
             this.uploadFileServ.uploadFileToFileSystem(files, partitaIVA);
-            return "success";
+            response.setHeader("Access-Control-Allow-Origin", "*");
+            response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE, PUT");
+            response.setHeader("Access-Control-Max-Age", "3600");
+            response.setHeader("Access-Control-Allow-Headers", "Authorization, Content-Type, Accept, x-requested-with, Cache-Control");
+            response.setStatus(HttpStatus.OK.value());
+            response.sendRedirect("http://localhost:4200");;
         }
         catch(Exception e)
         {
             e.printStackTrace();
         }
-        return "something wrong";
     }
 }
