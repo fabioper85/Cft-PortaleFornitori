@@ -1,24 +1,21 @@
 package com.fabio.test.consoftDemo.controllers;
 
 import com.fabio.test.consoftDemo.model.FornitoreTemp;
-import com.fabio.test.consoftDemo.repo.FornitoreRepo;
 import com.fabio.test.consoftDemo.services.FornitoreTempService;
 import com.fabio.test.consoftDemo.services.UploadFileService;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import java.sql.Timestamp;
 import java.util.Date;
 
-@Controller
+@RestController
 public class FornitoreTempController {
 
     private FornitoreTempService fornTempServ;
@@ -66,16 +63,13 @@ public class FornitoreTempController {
             // SAVE FILES
 
             this.uploadFileServ.uploadFileToFileSystem(files, partitaIVA);
-            response.setHeader("Access-Control-Allow-Origin", "*");
-            response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE, PUT");
-            response.setHeader("Access-Control-Max-Age", "3600");
-            response.setHeader("Access-Control-Allow-Headers", "Authorization, Content-Type, Accept, x-requested-with, Cache-Control");
-            response.setStatus(HttpStatus.OK.value());
-            response.sendRedirect("http://localhost:4200");;
         }
+        
         catch(Exception e)
         {
             e.printStackTrace();
         }
+        
+        response.setStatus(HttpStatus.OK.value());
     }
 }

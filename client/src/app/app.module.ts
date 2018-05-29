@@ -14,6 +14,7 @@ import { UserListComponent } from './user-list/user-list.component';
 import { SupplierFormComponent } from './supplier-form/supplier-form.component';
 import { RouterModule } from '@angular/router';
 import { DocsAreaComponent } from './docs-area/docs-area.component';
+import { UploadService } from './shared/upload/upload.service';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,7 @@ import { DocsAreaComponent } from './docs-area/docs-area.component';
     }
     ])
   ],
-  providers: [UserService],
+  providers: [UserService, UploadService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
