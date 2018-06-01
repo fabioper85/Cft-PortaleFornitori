@@ -7,14 +7,14 @@ import { UserService } from '../shared/user/user.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  
+
   public vatNum: string;
   public password: string;
   public firstAttempt = true;
   public isLoggedIn = false;
   public loginErr: any;
   private usersList: Array<any>;
-  
+
 
   constructor(private userService: UserService) {}
 
@@ -27,9 +27,16 @@ export class LoginComponent implements OnInit {
       console.log(this.usersList);
     });
   }
-  
+
   public checkLogin() {
     this.firstAttempt = false;
-    this.userService.getPassword(this.vatNum, this.password).subscribe(data => this.loginErr = !data);
+    this.userService.getPasswordPost(this.vatNum, this.password)
+      .subscribe(data => {
+        if (data) {
+          this.isLoggedIn = true;
+        } else {
+          this.loginErr = true;
+        }
+      });
   }
 }

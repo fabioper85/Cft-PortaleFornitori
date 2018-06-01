@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormControl, FormArray } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl, FormArray, AbstractControl } from '@angular/forms';
 import { UploadService } from '../shared/upload/upload.service';
 import { HttpEventType } from '@angular/common/http';
+import { FormErrorMsgs } from '../shared/formErrorMsg';
 
 @Component({
   selector: 'app-supp-form',
@@ -12,6 +13,8 @@ export class SupplierFormComponent implements OnInit {
 
   supplierForm: FormGroup;
   uploadSuccess = false;
+  formLoading = false;
+  errorMsg = null;
 
   constructor(private fb: FormBuilder, private upload: UploadService) {
     this.createBg(); // <--- inject FormBuilder
@@ -19,14 +22,21 @@ export class SupplierFormComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.codFisc);
+    console.log(this.pivaQuestionario);
+    this.errorMsg = new FormErrorMsgs();
     this.supplierForm.controls['societàDocs'].disable();
   }
 
   submit(event) {
+    this.uploadSuccess = false;
+    this.formLoading = true;
     this.upload.uploadForm(this.createFormData(event))
       .subscribe( events => {
         if (events.type === HttpEventType.Response && events.status === 200) {
+          console.log(events);
           this.uploadSuccess = true;
+          this.formLoading = false;
         }
       } );
     /*
@@ -76,7 +86,12 @@ export class SupplierFormComponent implements OnInit {
 
       partitaIVA: ['', Validators.required],
 
-      codiceFiscale: ['', Validators.required],
+      codiceFiscale: ['',
+          [
+            Validators.required,
+            // tslint:disable-next-line:max-line-length
+            Validators.pattern('^[a-zA-Z]{6}[0-9]{2}[a-zA-Z][0-9]{2}[a-zA-Z][0-9]{3}[a-zA-Z]$')]
+      ],
 
       telNumero: ['', Validators.required],
 
@@ -114,6 +129,10 @@ export class SupplierFormComponent implements OnInit {
     document.body.style.backgroundSize = 'cover';
   }
 
+  logErr(event) {
+    console.log(event);
+  }
+
   activate(tipoFornitore: string) {
     switch (tipoFornitore) {
       case 'PIVA':
@@ -125,5 +144,33 @@ export class SupplierFormComponent implements OnInit {
         this.supplierForm.get('societàDocs').enable();
         break;
     }
+  }
+
+  get ragSoc() {
+    return this.supplierForm.get('ragioneSociale');
+  }
+
+  get sedeLegale() {
+    return this.supplierForm.get('sedeLegale');
+  }
+
+  get DIA(): AbstractControl {
+    return this.supplierForm.get('dataInizioAttività') as AbstractControl;
+  }
+
+  get partitaIVA(): AbstractControl {
+    return this.supplierForm.get('partitaIVA') as AbstractControl;
+  }
+
+  get codFisc(): AbstractControl {
+    return this.supplierForm.get('codiceFiscale') as AbstractControl;
+  }
+
+  get pivaQuestionario() {
+    return this.supplierForm.controls['partitaIvaDocs'].get('questionario');
+  }
+
+  get tipoFornitore() {
+    return this.supplierForm.get('tipoFornitore');
   }
 }

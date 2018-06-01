@@ -1,6 +1,5 @@
 package com.fabio.test.consoftDemo.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -19,6 +18,9 @@ public class Fornitore {
 
     @Column
     private String cognome;
+    
+    @Column
+    private String vatnum;
 
     @OneToOne
     @JsonIgnore

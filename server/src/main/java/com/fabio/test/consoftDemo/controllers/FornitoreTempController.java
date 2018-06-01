@@ -1,15 +1,15 @@
 package com.fabio.test.consoftDemo.controllers;
 
-import com.fabio.test.consoftDemo.model.FornitoreTemp;
-import com.fabio.test.consoftDemo.services.FornitoreTempService;
-import com.fabio.test.consoftDemo.services.UploadFileService;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+
+import com.fabio.test.consoftDemo.model.FornitoreTemp;
+import com.fabio.test.consoftDemo.services.FornitoreTempService;
+import com.fabio.test.consoftDemo.services.UploadFileService;
 
 import javax.servlet.http.HttpServletResponse;
 

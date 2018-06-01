@@ -1,8 +1,9 @@
 package com.fabio.test.consoftDemo.services;
 
+import org.springframework.stereotype.Service;
+
 import com.fabio.test.consoftDemo.model.Fornitore;
 import com.fabio.test.consoftDemo.repo.FornitoreRepo;
-import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,5 +21,9 @@ public class FornitoreService {
         List<Fornitore> f = new ArrayList<>();
         this.fornitoreRepo.findAll().forEach(fornitore -> f.add(fornitore));
         return f;
+    }
+    
+    public Fornitore getFornitoreByVatnum(String vatnum) {
+    	return fornitoreRepo.findByVatnum(vatnum);
     }
 }

@@ -15,6 +15,7 @@ import { SupplierFormComponent } from './supplier-form/supplier-form.component';
 import { RouterModule } from '@angular/router';
 import { DocsAreaComponent } from './docs-area/docs-area.component';
 import { UploadService } from './shared/upload/upload.service';
+import { SpinnerComponent } from './shared/spinner/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { UploadService } from './shared/upload/upload.service';
     UserListComponent,
     SupplierFormComponent,
     DocsAreaComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,

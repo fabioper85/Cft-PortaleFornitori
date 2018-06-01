@@ -3,8 +3,8 @@ package com.fabio.test.consoftDemo.model;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 
-import java.sql.Time;
-import java.sql.Timestamp;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 import java.util.Objects;
 
@@ -57,6 +57,7 @@ public class FornitoreTemp {
         this.sedeOperativa = sedeOperativa;
     }
 
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     public Date getDataInizioAttività() {
         return dataInizioAttività;
     }
