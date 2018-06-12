@@ -28,9 +28,13 @@ public class FornitoreController {
     		)
     {
         Fornitore fTemp = fornitoreServ.getFornitoreByVatnum(vatnum);
-        String pwdTemp = fTemp.getLogin().getPassword();
-        if(pwdTemp.equals(password)) {
-        	return true;
+        if(fTemp != null) {
+	        String pwdTemp = fTemp.getLogin().getPassword();
+	        if(pwdTemp.equals(password)) {
+	        	return true;
+	        } else {
+	        	return false;
+	        }
         } else {
         	return false;
         }

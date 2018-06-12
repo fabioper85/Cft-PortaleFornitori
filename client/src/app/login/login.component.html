@@ -17,10 +17,10 @@
 			    <div class="form-group">
 			      <input [(ngModel)]="password" [ngModelOptions]="{standalone: true}" class="form-control" type="password" placeholder="Password" required>
 			    </div>
-			    <div *ngIf="loginErr && !firstAttempt" class="alert alert-danger" role="alert" id="loginAlert">
+			    <div *ngIf="!isLoggedIn && !firstAttempt" class="alert alert-danger" role="alert" id="loginAlert">
 			    	<p>Errore duranta l'autenticazione!<br>Controlla i dati inseriti</p>
 			    </div>
-			    <div *ngIf="!loginErr && !firstAttempt" class="alert alert-success" role="alert">
+			    <div *ngIf="isLoggedIn && !firstAttempt" class="alert alert-success" role="alert">
 			    	<p>Autenticazione effettuata con successo!</p>
 			    </div>
 			    <button type="submit" (click)="checkLogin()" class="btn btn-primary">Accedi</button>
@@ -35,6 +35,8 @@
 		</div>
 	</div>
 </div>
+
+<app-footer></app-footer>
 	
 
 

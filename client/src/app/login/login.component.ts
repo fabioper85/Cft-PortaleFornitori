@@ -12,7 +12,6 @@ export class LoginComponent implements OnInit {
   public password: string;
   public firstAttempt = true;
   public isLoggedIn = false;
-  public loginErr: any;
   private usersList: Array<any>;
 
 
@@ -31,12 +30,8 @@ export class LoginComponent implements OnInit {
   public checkLogin() {
     this.firstAttempt = false;
     this.userService.getPasswordPost(this.vatNum, this.password)
-      .subscribe(data => {
-        if (data) {
-          this.isLoggedIn = true;
-        } else {
-          this.loginErr = true;
-        }
-      });
+      .subscribe((data: any) => {
+          this.isLoggedIn = data;
+        });
+    }
   }
-}

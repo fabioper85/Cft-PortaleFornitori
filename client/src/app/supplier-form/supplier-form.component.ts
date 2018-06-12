@@ -29,6 +29,8 @@ export class SupplierFormComponent implements OnInit {
   }
 
   submit(event) {
+    console.log(event);
+    console.log(this.supplierForm);
     this.uploadSuccess = false;
     this.formLoading = true;
     this.upload.uploadForm(this.createFormData(event))
