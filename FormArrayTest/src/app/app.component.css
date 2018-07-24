@@ -1,0 +1,264 @@
+.material-icons
+{
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;  /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+}
+
+*
+{
+    font-family: sans-serif;
+}
+
+.wrapper
+{
+    overflow: auto;
+    height: 100vh;
+}
+
+.wrapper:before
+{
+  content: "";
+  position: fixed;
+  height: 100vh;
+  overflow: inherit;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  display: block;
+  /* background-image: url('../assets/bg02.jpg'); */
+  background-size: cover;
+  background-position: center center;
+  background-size: 100%;
+  filter: saturate(0);
+}
+
+.container
+{
+    width: 80%;
+    margin-top: 30px;
+}
+
+.container .row
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+.container .row,
+.container .form-group
+{
+    margin: 0;
+    padding: 0;
+}
+
+label
+{
+    color: #888;
+    font-weight: 400;
+}
+
+input[type="text"],
+select
+{
+    background-color: transparent;
+    border-radius: 0;
+    border: none;
+    border-bottom: 2px solid #bbb;
+}
+
+input:focus,
+select:focus
+{
+    background-color: inherit;
+    border-bottom: 2px solid rgba(122,13,16,1);
+    box-shadow: none;
+}
+
+.width3
+{
+    width: 32%;
+}
+
+.width1
+{
+    width: 100%;
+}
+
+.width2
+{
+    width: 48%;
+}
+
+.docDetail
+{
+    position: relative;
+    padding: 3% 3%;
+    height: 230px;
+    margin-top: 20px;
+    font-size: 14px;
+    background-color: #eee;
+    border: 1px solid #bbb;
+    border-radius: 3px;
+    transition: all .2s ease-in-out;
+    overflow: hidden;
+}
+
+.docDetail:hover
+{
+    filter: drop-shadow(0 3px 8px rgba(0,0,0,.4));
+}
+
+.docDetail .form-group .head
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 55%;
+    margin: 0;
+    padding: 7% 0;
+    background: linear-gradient(180deg, rgba(122,140,130,1), rgba(122,112,130,0));
+    /* background: linear-gradient(180deg, rgba(122,13,16,1), rgba(122,13,16,0));*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    z-index: 0;
+}
+
+.docDetail .form-group a
+{
+    text-align: center;
+    margin-top: 20px;
+    background-color: rgba(122,13,16,1);
+    padding: 1% 3%;
+    width: 50%;
+    border-radius: 30px;
+    color: #fff;
+    z-index: 20;
+}
+
+.docDetail .form-group .head .title
+{
+    font-size: 27px;
+    text-align: center;
+    margin: 0;
+    font-weight: 400;
+    color: rgba(122,13,16,1);
+}
+
+.docUpload
+{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container .docs
+{
+    margin: 0;
+    padding: 0;
+    margin-bottom: 200px;
+}
+
+.container .docs .header
+{
+    margin: 40px 0 0 0;
+    color: rgba(122,13,16,1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container .docs .header p
+{
+    margin: 0;
+}
+
+.container .docs .header .material-icons
+{
+    font-size: 40px;
+}
+
+.container .descrizioneTipoFornitore .title
+{
+    text-align: center;
+    font-weight: 300;
+    color: rgba(122,13,16,1);
+    margin-top: 30px;
+}
+
+.container .descrizioneTipoFornitore p
+{
+    text-align: center;
+    font-size: 14px;
+}
+
+.container .docs .fileInput
+{
+    position: absolute;
+    height: 80px;
+    left: 50%;
+    bottom: 9%;
+    width: 100%;
+    border-radius: 0 !important;
+    transform: translate(-50%, 0);
+    padding: 3%;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container .docs .fileInput input[type="text"]
+{
+    color: #fff;
+}
+
+.container .docs .fileInput .uploadCTA
+{
+    color: rgba(122,13,16,1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.badge-info
+{
+    color: #fff;
+    border: none;
+    background-color: rgba(122,13,16,1);
+    /*
+    color: rgba(122,13,16,1);
+    border: 1px solid rgba(122,13,16,1);
+    background-color: rgba(122,13,16,.5);
+    */
+    width: 70%;
+    margin-bottom: 20px;
+    padding: 2% 4%;
+}

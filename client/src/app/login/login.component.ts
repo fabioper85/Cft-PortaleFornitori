@@ -30,8 +30,8 @@ export class LoginComponent implements OnInit {
   public checkLogin() {
     this.firstAttempt = false;
     this.userService.getPasswordPost(this.vatNum, this.password)
-      .subscribe((data: any) => {
-          this.isLoggedIn = data;
+      .subscribe((logged: boolean) => {
+          this.isLoggedIn = logged;
         });
     }
   }

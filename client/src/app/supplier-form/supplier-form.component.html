@@ -1,297 +1,297 @@
-<div class="container">
-	<h1>Accreditamento fornitore</h1>
+<div class="wrapper">
+    <div class="container">
+        <h1>Accreditamento fornitore</h1>
 
-	<small>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-		Duis in egestas augue. Mauris eget orci tempor, volutpat dolor eget,
-		pretium nisl. Vestibulum vitae metus non mauris ultrices luctus vitae
-		a risus. Phasellus eget dignissim eros. Vivamus tempus maximus erat
-		sed ultricies. Curabitur est ante, porta maximus placerat eu,
-		porttitor id orci. Maecenas sit amet auctor arcu. Etiam porttitor
-		porta ornare. Nullam sollicitudin eget est ac tempor. Aenean sit amet
-		sollicitudin odio. Vivamus nunc ligula, efficitur vitae maximus eu,
-		viverra non augue. In justo purus, blandit vitae magna a, dictum
-		pharetra orci. Curabitur gravida leo ac ex interdum accumsan. Proin a
-		odio nisl. Morbi scelerisque libero vel arcu aliquam sagittis.
-	</small>
+        <small>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Duis in egestas augue. Mauris eget orci tempor, volutpat dolor eget,
+            pretium nisl. Vestibulum vitae metus non mauris ultrices luctus vitae
+            a risus. Phasellus eget dignissim eros. Vivamus tempus maximus erat
+            sed ultricies. Curabitur est ante, porta maximus placerat eu,
+            porttitor id orci. Maecenas sit amet auctor arcu. Etiam porttitor
+            porta ornare. Nullam sollicitudin eget est ac tempor. Aenean sit amet
+            sollicitudin odio. Vivamus nunc ligula, efficitur vitae maximus eu,
+            viverra non augue. In justo purus, blandit vitae magna a, dictum
+            pharetra orci. Curabitur gravida leo ac ex interdum accumsan. Proin a
+            odio nisl. Morbi scelerisque libero vel arcu aliquam sagittis.
+        </small>
 
-	<div class="alert alert-warning" role="alert">
-		Compilando il questionario acconsentite al trattamento dei dati personali
-		(Codice in materia di protezione dei dati personali- art. 13 D. Lgs. 196/2003)
-	</div>
-	
-	<form [formGroup]="supplierForm" (ngSubmit)="submit($event)" class="form-area">
-	
-		<h4 class="title">Anagrafica fornitore</h4>
-		
-		<div class="row">
-			<div class="form-group col-lg-6 col-md-12">
-				<label>Ragione / Denominazione sociale *</label>
-				<input type="text" class="form-control" formControlName="ragioneSociale">
-                <i class="material-icons">account_box</i>
-
-            <div *ngIf="ragSoc.touched && ragSoc.invalid" class="alert alert-danger">
-                {{ errorMsg.required() }}
-            </div>  
-            </div>
-        </div>
-		
-		<!-- SEDI FORNITORE -->
-		
-		<div class="row">
-
-            <!-- SEDI LEGALE -->
-
-			<div class="form-group col-lg-6 col-md-6">
-				<label>
-					Indirizzo sede legale <small>(via, numero civico, cap, citt&agrave;, prov.)</small> *
-				</label>
-                <input 
-                    type="text" 
-                    class="form-control" 
-                    formControlName="sedeLegale">
-
-                <i class="material-icons">business</i>
-
-                <div *ngIf="sedeLegale.touched && sedeLegale.invalid" class="alert alert-danger">
-                    {{ errorMsg.required() }}
-                </div>
-            </div>
-            
-			<div class="form-group col-lg-6 col-md-6">
-				<label>
-					Indirizzo sede operativa <small>(via, numero civico, cap, citt&agrave;, prov.)</small> *
-				</label>
-				<input type="text" class="form-control" formControlName="sedeOperativa">
-				<i class="material-icons">location_on</i>
-			</div>
-		</div>
-		
-		<!-- DATI FISCALI -->
-		
-		<div class="row">
-			<div class="form-group col-lg-4 col-md-12">
-				<label>Data inizio attivit&agrave; *</label>
-				<input type="date" class="form-control" formControlName="dataInizioAttività">
-                <i class="material-icons">date_range</i>
-                <div
-                    class="alert alert-danger"
-                    *ngIf="DIA.touched && DIA.invalid">
-                </div>
-			</div>
-			
-			<div class="form-group col-lg-4 col-md-6">
-				<label>Partita IVA *</label>
-				<input type="text" class="form-control" formControlName="partitaIVA">
-                <i class="material-icons">work</i>
-                <div
-                    class="alert alert-danger"
-                    *ngIf="partitaIVA.touched && partitaIVA.invalid">
-                </div>
-			</div>
-			
-			<div class="form-group col-lg-4 col-md-6">
-				<label>Codice Fiscale *</label>
-				<input type="text" class="form-control" formControlName="codiceFiscale">
-                <i class="material-icons">credit_card</i>
-                <div
-                    class="alert alert-danger"
-                    *ngIf="codFisc.touched && codFisc.invalid">
-                </div>
-			</div>
-		</div>
-		<!-- CONTATTI -->
-		
-		<h4 class="title">Contatti</h4>
-		
-		<div class="row">
-			<div class="form-group col-lg-4 col-md-12">
-				<label>Telefono *</label>
-				<input type="text" class="form-control" formControlName="telNumero">
-				<i class="material-icons">phone</i>
-			</div>
-			
-			<div class="form-group col-lg-4 col-md-12">
-				<label>Fax *</label>
-				<input type="text" class="form-control" formControlName="faxNumero">
-				<i class="material-icons">local_printshop</i>
-			</div>
-			
-			<div class="form-group col-lg-4 col-md-12">
-				<label>Email *</label>
-				<input type="email" class="form-control" formControlName="email">
-				<i class="material-icons">email</i>
-			</div>
-		</div>
-		
-		<div class="row userChoice">
-
-			<div class="form-check form-check-inline">
-			  <label class="form-check-label">Libero professionista</label>
-              <input 
-                class="form-check-input" 
-                type="radio" formControlName="tipoFornitore" 
-                value="PIVA" 
-                (change)="activate(tipoFornitore.value)">
-			</div>
-			
-			<div class="form-check form-check-inline">
-              <label class="form-check-label">Societ&agrave; con dipendenti</label>
-              <input 
-                class="form-check-input" 
-                type="radio" formControlName="tipoFornitore" 
-                value="SOC" 
-                (change)="activate(tipoFornitore.value)">
-            </div>
-            
-        </div>
-
-        <!-- PARTITA IVA DOC TEMPLATE -->
-
-        <div *ngIf="tipoFornitore.value == 'PIVA'">
-            <div formGroupName="partitaIvaDocs" class="docsArea" #pivaDocs>
-                <div class="row">
-                    <label class="col-lg-4 col-md-12 col-sm-12">Questionario firmato</label>
-                    <input 
-                        type="file" 
-                        class="col-lg-8 col-md-12 col-sm-12" 
-                        formControlName="questionario">
-                    <div 
-                        *ngIf="pivaQuestionario.dirty && pivaQuestionario.invalid;
-                                then fileErrorBox">
-                    </div>
-                </div>
-                <div class="row">
-                    <label class="col-lg-4 col-md-12 col-sm-12">Documento d'identità</label>
-                    <input 
-                        type="file" 
-                        class="col-lg-8 col-md-12 col-sm-12" 
-                        formControlName="docIdentità">
-                </div>
-                <div class="row">
-                    <label class="col-lg-4 col-md-12 col-sm-12">Curriculum Vitae</label>
-                    <input 
-                        type="file" 
-                        class="col-lg-8 col-md-12 col-sm-12" 
-                        formControlName="curriculum">
-                </div>
-                <div class="row">
-                    <label class="col-lg-4 col-md-12 col-sm-12">Fotografia</label>
-                    <input 
-                        type="file" 
-                        class="col-lg-8 col-md-12 col-sm-12" 
-                        formControlName="foto">
-                </div>
-                <div class="row">
-                    <label class="col-lg-4 col-md-12 col-sm-12">Visura Camerale</label>
-                    <input 
-                        type="file" 
-                        class="col-lg-8 col-md-12 col-sm-12" 
-                        formControlName="visuraCamerale">
-                </div>
-            </div>
-        </div>
-
-        <!-- SOCIETA' DOC TEMPLATE -->
-
-        <div *ngIf="tipoFornitore.value == 'SOC'">
-
-            <div formGroupName="societàDocs" class="docsArea">
-
-                <div class="row">
-                    <label class="col-lg-4 col-md-12 col-sm-12">Questionario firmato</label>
-                    <input 
-                        type="file" 
-                        class="col-lg-8 col-md-12 col-sm-12" 
-                        formControlName="questionario">
-                </div>
-
-                <div class="row">
-                    <label class="col-lg-4 col-md-12 col-sm-12">Visura Camerale</label>
-                    <input 
-                        type="file" 
-                        class="col-lg-8 col-md-12 col-sm-12" 
-                        formControlName="visuraCamerale">
-                </div>
-                
-                <div class="row">
-                    <label class="col-lg-4 col-md-12 col-sm-12">UNI EN - ISO 9001</label>
-                    <input 
-                        type="file" 
-                        class="col-lg-8 col-md-12 col-sm-12" 
-                        formControlName="iso9001">
-                </div>
-
-                <div class="row">
-                    <label class="col-lg-4 col-md-12 col-sm-12">Polizza RCT/RCO</label>
-                    <input 
-                        type="file" 
-                        class="col-lg-8 col-md-12 col-sm-12" 
-                        formControlName="polizzaRctRco">
-                </div>
-
-                <div class="row">
-                    <label class="col-lg-4 col-md-12 col-sm-12">DURC</label>
-                    <input 
-                        type="file" 
-                        class="col-lg-8 col-md-12 col-sm-12" 
-                        formControlName="durc">
-                </div>
-
-                <div class="row">
-                    <label class="col-lg-4 col-md-12 col-sm-12">Ultimo bilancio disponibile</label>
-                    <input 
-                        type="file" 
-                        class="col-lg-8 col-md-12 col-sm-12" 
-                        formControlName="bilancio">
-                </div>
-            </div>
+        <div class="alert alert-warning" role="alert">
+            Compilando il questionario acconsentite al trattamento dei dati personali
+            (Codice in materia di protezione dei dati personali- art. 13 D. Lgs. 196/2003)
         </div>
         
-        <div class="btn-box">
-            <button 
-                [disabled]="!supplierForm.valid" 
-                class="btn btn-primary">Invia
-            </button>
-            <app-spinner *ngIf="formLoading"></app-spinner>
-        </div>
+        <form [formGroup]="supplierForm" (ngSubmit)="submit($event)" class="form-area">
+        
+            <h4 class="title">Anagrafica fornitore</h4>
+            
+            <div class="row">
+                <div class="form-group col-lg-6 col-md-12">
+                    <label>Ragione / Denominazione sociale *</label>
+                    <input type="text" class="form-control" formControlName="ragioneSociale">
+                    <i class="material-icons">account_box</i>
 
-    </form>
-    
-    <div 
-        class="alert alert-success" 
-        *ngIf="uploadSuccess">
-            <h4 class="title">
-                <i class="material-icons">check_circle</i>
-                Dati inviati correttamente!
-            </h4>
-            <span>Riceverai una comunicazione all'indirizzo mail inserito riguardo 
-                l'esito della procedura di accreditamento
-            </span>
-    </div>
-
-    <ng-template #fileErrorBox>
-        <div class="alert alert-danger fileLoad">
-            <i class="material-icons">report_problem</i>
-            <div class="content">
-                <h6><u>Errore nella lettura del file</u></h6>
-                <span>Controlla di aver caricato correttamente il file</span>
+                <div *ngIf="ragSoc.touched && ragSoc.invalid" class="alert alert-danger">
+                    {{ errorMsg.required() }}
+                </div>  
+                </div>
             </div>
-        </div>
-    </ng-template>
+            
+            <!-- SEDI FORNITORE -->
+            
+            <div class="row">
 
-    <ng-template #errorShowMsg>
-        <div class="alert alert-danger errorLog">
-            <b>Sembra che qualcosa sia andato storto:</b>
-            <p
-                *ngIf="codFisc.errors.required">
-                - {{ errorMsg.required() }}
-            </p>
-            <p
-                *ngIf="codFisc.errors.pattern">
-                - {{ errorMsg.pattern() }}
-            </p>
+                <!-- SEDI LEGALE -->
+
+                <div class="form-group col-lg-6 col-md-6">
+                    <label>
+                        Indirizzo sede legale <small>(via, numero civico, cap, citt&agrave;, prov.)</small> *
+                    </label>
+                    <input 
+                        type="text" 
+                        class="form-control" 
+                        formControlName="sedeLegale">
+
+                    <i class="material-icons">business</i>
+
+                    <div *ngIf="sedeLegale.touched && sedeLegale.invalid" class="alert alert-danger">
+                        {{ errorMsg.required() }}
+                    </div>
+                </div>
+                
+                <div class="form-group col-lg-6 col-md-6">
+                    <label>
+                        Indirizzo sede operativa <small>(via, numero civico, cap, citt&agrave;, prov.)</small> *
+                    </label>
+                    <input type="text" class="form-control" formControlName="sedeOperativa">
+                    <i class="material-icons">location_on</i>
+                </div>
+            </div>
+            
+            <!-- DATI FISCALI -->
+            
+            <div class="row">
+                <div class="form-group col-lg-4 col-md-12">
+                    <label>Data inizio attivit&agrave; *</label>
+                    <input type="date" class="form-control" formControlName="dataInizioAttività">
+                    <i class="material-icons">date_range</i>
+                    <div
+                        class="alert alert-danger"
+                        *ngIf="DIA.touched && DIA.invalid">
+                    </div>
+                </div>
+                
+                <div class="form-group col-lg-4 col-md-6">
+                    <label>Partita IVA *</label>
+                    <input type="text" class="form-control" formControlName="partitaIVA">
+                    <i class="material-icons">work</i>
+                    <div
+                        class="alert alert-danger"
+                        *ngIf="partitaIVA.touched && partitaIVA.invalid">
+                    </div>
+                </div>
+                
+                <div class="form-group col-lg-4 col-md-6">
+                    <label>Codice Fiscale *</label>
+                    <input type="text" class="form-control" formControlName="codiceFiscale">
+                    <i class="material-icons">credit_card</i>
+                    <div
+                        class="alert alert-danger"
+                        *ngIf="codFisc.touched && codFisc.invalid">
+                    </div>
+                </div>
+            </div>
+            <!-- CONTATTI -->
+            
+            <h4 class="title">Contatti</h4>
+            
+            <div class="row">
+                <div class="form-group col-lg-4 col-md-12">
+                    <label>Telefono *</label>
+                    <input type="text" class="form-control" formControlName="telNumero">
+                    <i class="material-icons">phone</i>
+                </div>
+                
+                <div class="form-group col-lg-4 col-md-12">
+                    <label>Fax *</label>
+                    <input type="text" class="form-control" formControlName="faxNumero">
+                    <i class="material-icons">local_printshop</i>
+                </div>
+                
+                <div class="form-group col-lg-4 col-md-12">
+                    <label>Email *</label>
+                    <input type="email" class="form-control" formControlName="email">
+                    <i class="material-icons">email</i>
+                </div>
+            </div>
+            
+            <div class="row userChoice">
+
+                <div class="form-check form-check-inline">
+                <label class="form-check-label">Libero professionista</label>
+                <input 
+                    class="form-check-input" 
+                    type="radio" formControlName="tipoFornitore" 
+                    value="PIVA" 
+                    (change)="activate(tipoFornitore.value)">
+                </div>
+                
+                <div class="form-check form-check-inline">
+                <label class="form-check-label">Societ&agrave; con dipendenti</label>
+                <input 
+                    class="form-check-input" 
+                    type="radio" formControlName="tipoFornitore" 
+                    value="SOC" 
+                    (change)="activate(tipoFornitore.value)">
+                </div>
+                
+            </div>
+
+            <!-- PARTITA IVA DOC TEMPLATE -->
+
+            <div *ngIf="tipoFornitore.value == 'PIVA'">
+                <div formGroupName="partitaIvaDocs" class="docsArea" #pivaDocs>
+                    <div class="row">
+                        <label class="col-lg-4 col-md-12 col-sm-12">Questionario firmato</label>
+                        <input 
+                            type="file" 
+                            class="col-lg-8 col-md-12 col-sm-12" 
+                            formControlName="questionario">
+                        <div 
+                            *ngIf="pivaQuestionario.dirty && pivaQuestionario.invalid;
+                                    then fileErrorBox">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="col-lg-4 col-md-12 col-sm-12">Documento d'identità</label>
+                        <input 
+                            type="file" 
+                            class="col-lg-8 col-md-12 col-sm-12" 
+                            formControlName="docIdentità">
+                    </div>
+                    <div class="row">
+                        <label class="col-lg-4 col-md-12 col-sm-12">Curriculum Vitae</label>
+                        <input 
+                            type="file" 
+                            class="col-lg-8 col-md-12 col-sm-12" 
+                            formControlName="curriculum">
+                    </div>
+                    <div class="row">
+                        <label class="col-lg-4 col-md-12 col-sm-12">Fotografia</label>
+                        <input 
+                            type="file" 
+                            class="col-lg-8 col-md-12 col-sm-12" 
+                            formControlName="foto">
+                    </div>
+                    <div class="row">
+                        <label class="col-lg-4 col-md-12 col-sm-12">Visura Camerale</label>
+                        <input 
+                            type="file" 
+                            class="col-lg-8 col-md-12 col-sm-12" 
+                            formControlName="visuraCamerale">
+                    </div>
+                </div>
+            </div>
+
+            <!-- SOCIETA' DOC TEMPLATE -->
+
+            <div *ngIf="tipoFornitore.value == 'SOC'">
+
+                <div formGroupName="societàDocs" class="docsArea">
+
+                    <div class="row">
+                        <label class="col-lg-4 col-md-12 col-sm-12">Questionario firmato</label>
+                        <input 
+                            type="file" 
+                            class="col-lg-8 col-md-12 col-sm-12" 
+                            formControlName="questionario">
+                    </div>
+
+                    <div class="row">
+                        <label class="col-lg-4 col-md-12 col-sm-12">Visura Camerale</label>
+                        <input 
+                            type="file" 
+                            class="col-lg-8 col-md-12 col-sm-12" 
+                            formControlName="visuraCamerale">
+                    </div>
+                    
+                    <div class="row">
+                        <label class="col-lg-4 col-md-12 col-sm-12">UNI EN - ISO 9001</label>
+                        <input 
+                            type="file" 
+                            class="col-lg-8 col-md-12 col-sm-12" 
+                            formControlName="iso9001">
+                    </div>
+
+                    <div class="row">
+                        <label class="col-lg-4 col-md-12 col-sm-12">Polizza RCT/RCO</label>
+                        <input 
+                            type="file" 
+                            class="col-lg-8 col-md-12 col-sm-12" 
+                            formControlName="polizzaRctRco">
+                    </div>
+
+                    <div class="row">
+                        <label class="col-lg-4 col-md-12 col-sm-12">DURC</label>
+                        <input 
+                            type="file" 
+                            class="col-lg-8 col-md-12 col-sm-12" 
+                            formControlName="durc">
+                    </div>
+
+                    <div class="row">
+                        <label class="col-lg-4 col-md-12 col-sm-12">Ultimo bilancio disponibile</label>
+                        <input 
+                            type="file" 
+                            class="col-lg-8 col-md-12 col-sm-12" 
+                            formControlName="bilancio">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="btn-box">
+                <button 
+                    [disabled]="!supplierForm.valid" 
+                    class="btn btn-primary">Invia
+                </button>
+                <app-spinner *ngIf="formLoading"></app-spinner>
+            </div>
+
+        </form>
+        
+        <div 
+            class="alert alert-success" 
+            *ngIf="uploadSuccess">
+                <h4 class="title">
+                    <i class="material-icons">check_circle</i>
+                    Dati inviati correttamente!
+                </h4>
+                <span>Riceverai una comunicazione all'indirizzo mail inserito riguardo 
+                    l'esito della procedura di accreditamento
+                </span>
         </div>
-    </ng-template>
-    
-    
+
+        <ng-template #fileErrorBox>
+            <div class="alert alert-danger fileLoad">
+                <i class="material-icons">report_problem</i>
+                <div class="content">
+                    <h6><u>Errore nella lettura del file</u></h6>
+                    <span>Controlla di aver caricato correttamente il file</span>
+                </div>
+            </div>
+        </ng-template>
+
+        <ng-template #errorShowMsg>
+            <div class="alert alert-danger errorLog">
+                <b>Sembra che qualcosa sia andato storto:</b>
+                <p
+                    *ngIf="codFisc.errors.required">
+                    - {{ errorMsg.required() }}
+                </p>
+                <p
+                    *ngIf="codFisc.errors.pattern">
+                    - {{ errorMsg.pattern() }}
+                </p>
+            </div>
+        </ng-template>
+    </div>
 </div>

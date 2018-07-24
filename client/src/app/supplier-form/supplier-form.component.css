@@ -1,3 +1,14 @@
+.wrapper
+{
+	background: url("../../assets/images/building02.jpg"), #333;
+	background-blend-mode: multiply;
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	overflow: auto;
+}
+
 .container
 {
 	line-height: 1;
@@ -52,7 +63,6 @@
 	text-align: center;
 	border-top: 5px solid rgba(151, 56, 54,1);
 	border-radius: 0px 0px 4px 4px;
-	/* background-color: #B0B1AB; */
 	background-color: #eee;
 	padding: 10px 20px;
 	width: 50%;
@@ -168,12 +178,10 @@
 	justify-content: space-around;
 	border-top: 5px solid rgba(151, 56, 54,1);
 	border-radius: 0;
-	/* background-color: #B0B1AB; */
 	background-color: #eee;
 	padding: 2% 6%;
 	width: 70%;
 	margin: 0 auto;
-	/* filter: drop-shadow(0 0 6px rgba(0,0,0,.8)); */
 }
 
 .form-area .docsArea
@@ -185,13 +193,11 @@
 	flex-direction: column;
 	border-radius: 0 0 4px 4px;
 	border-top: 1px solid rgba(151, 56, 54,1);
-	/* background-color: #B0B1AB; */
 	background-color: #eee;
 	padding: 3% 8%;
 	width: 70%;
 	margin: 0 auto;
 	margin-bottom: 30px;
-	/* filter: drop-shadow(0 0 6px rgba(0,0,0,.8)); */
 }
 
 .alert.alert-danger.errorLog *
@@ -212,15 +218,8 @@
 	width: 100%;
 	margin: 5px;
 	margin-bottom: 15px;
-	/* background-color: red; */
 }
 
-/*
-.form-area .docsArea .row:last-child
-{
-	margin-bottom: 5px;
-}
-*/
 .form-area .docsArea .row > label
 {
 	font-weight: bold;
@@ -240,11 +239,12 @@
 
 .btn-box
 {
+	position: relative;
 	margin: 0;
+	margin-bottom: 50px;
 	padding: 0;
 	height: 100px;
 	width: 100%;
-	position: relative;
 }
 
 .alert-success
@@ -257,7 +257,7 @@
 	text-align: center;
 	padding: 3%;
 	margin: 0 auto;
-	margin-top: 40px;
+	margin-bottom: 120px;
 	border-radius: 0;
 	filter: drop-shadow(0 0 20px rgba(0,0,0,1));
 }
@@ -323,7 +323,6 @@
 
 	.btn-box
 	{
-		top: 50px;
 		margin-bottom: 50px;
 	}
 
@@ -390,7 +389,7 @@
 	.btn-box
 	{
 		top: 50px;
-		margin-bottom: 50px;
+		margin-bottom: 20px;
 	}
 
 	.btn-primary

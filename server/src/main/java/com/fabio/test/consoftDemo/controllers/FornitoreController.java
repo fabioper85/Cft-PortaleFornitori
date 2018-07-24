@@ -2,14 +2,11 @@ package com.fabio.test.consoftDemo.controllers;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fabio.test.consoftDemo.model.CredenzialiAccesso;
 import com.fabio.test.consoftDemo.model.Fornitore;
 import com.fabio.test.consoftDemo.services.FornitoreService;
-import com.fasterxml.jackson.annotation.JacksonInject;
 
 @RestController
 public class FornitoreController {

@@ -1,0 +1,75 @@
+<div class="wrapper">
+  <div class="container">
+    <h1>{{ title }}</h1>
+
+    <div [formGroup]="form">
+      <div class="row">
+        <div class="form-group col-lg-5 mb-4">
+        <label for="name">Nome</label>
+        <input id="name" class="form-control" type="text" formControlName="name">
+      </div>
+      <div class="form-group col-lg-5 mb-4">
+        <label for="surname">Cognome</label>
+        <input id="surname" class="form-control" type="text" formControlName="surname">
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-lg-12">
+        <label for="scelta">Tipo forntore</label>
+        <select class="form-control" formControlName="selection" (change)="loadDocs($event)">
+          <option *ngFor='let t of tipiFornitore' [value]="t.tipoFornitore">
+            {{t.descrizione}}
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+    <div class="descrizioneTipoFornitore" *ngFor='let t of tipiFornitore'>
+      <div *ngIf="form.controls['selection'].value == t.tipoFornitore">
+        <h1 class="title">{{ t.descrizione}}</h1>
+        <p>Loerm ipsum Loerm ipsum Loerm ipsum Loerm ipsum Loerm ipsum Loerm ipsum Loerm ipsum Loerm ipsum </p>
+        <!-- Aggiungere sezione DESCRIZIONE LUNGA da db -->
+      </div>
+    </div>
+
+    <div class="docs" [formGroup]="docsForm" *ngIf="form.controls['selection'].value && docs.length">
+      <div class="header">
+        <h3 class="mainTitle">Documenti necessari</h3>
+        <p>per l'accreditamento</p>
+        <i class="material-icons">keyboard_arrow_down</i>
+      </div>
+      <div class="row">
+        <!-- ngClass = stile in base alla dimensione dell'array -->
+        <div class="docDetail" *ngFor="let doc of docs"
+        [ngClass]="{
+          'width3': docs.length >= 3,
+          'width2': docs.length == 2,
+          'width1': docs.length < 2
+        }">
+          <div class="form-group">
+            <div class="head">
+              <h4 class="title">{{ doc.descrizione }}</h4>
+              <!-- sezione QUESTIONARIO -->
+              <a *ngIf="doc.codice == 'QST'" href="../assets/report-di-trading_PDF_demo.png" download>Scarica il {{ doc.descrizione }}</a>
+            </div>
+            <!-- sezione SCADENZA DOCUMENTO / valutare mantenimento 
+            <div *ngIf="doc.haScadenza">
+              <label>Data di scadenza documento</label>
+              <input class="form-control" type="date" [formControlName]="doc.codice + 'dataScadenza'">
+            </div>
+            -->
+          </div>
+          <!-- upload Documento -->
+          <div class="form-group fileInput">
+            <div class="uploadCTA">
+              <span>Carica qui il documento</span>
+              <i class="material-icons">keyboard_arrow_down</i>
+            </div>
+            <!-- formControl -->
+            <input type="file" formControlName="{{doc.codice}}">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

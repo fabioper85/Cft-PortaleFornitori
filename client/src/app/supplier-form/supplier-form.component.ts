@@ -15,37 +15,37 @@ export class SupplierFormComponent implements OnInit {
   uploadSuccess = false;
   formLoading = false;
   errorMsg = null;
+  docs: any;
 
-  constructor(private fb: FormBuilder, private upload: UploadService) {
-    this.createBg(); // <--- inject FormBuilder
-    this.createForm();
-  }
+  constructor(private fb: FormBuilder, private upload: UploadService) {}
 
   ngOnInit() {
-    console.log(this.codFisc);
-    console.log(this.pivaQuestionario);
+    this.createForm();
     this.errorMsg = new FormErrorMsgs();
     this.supplierForm.controls['societàDocs'].disable();
+    this.upload.getDocsByTipoFornitore('PIVA')
+      .subscribe((data: any[]) => {
+        data.forEach(element => {
+          this.supplierForm.addControl(element.codice, new FormControl('', Validators.required));
+        });
+    });
+    console.log(this.supplierForm);
   }
 
   submit(event) {
-    console.log(event);
-    console.log(this.supplierForm);
+    // console.log(this.supplierForm);
     this.uploadSuccess = false;
     this.formLoading = true;
     this.upload.uploadForm(this.createFormData(event))
-      .subscribe( events => {
-        if (events.type === HttpEventType.Response && events.status === 200) {
-          console.log(events);
-          this.uploadSuccess = true;
-          this.formLoading = false;
+      .subscribe(
+        events => {
+          if (events.type === HttpEventType.Response && events.status === 200) {
+            console.log(events);
+            this.uploadSuccess = true;
+            this.formLoading = false;
+          }
         }
-      } );
-    /*
-    console.log(this.formData.getAll('docs[]'));
-    console.log(this.formData.get('dataInizioAttività'));
-    this.addDataToFormData();
-    */
+      );
   }
 
   createFormData(event) {
@@ -122,19 +122,6 @@ export class SupplierFormComponent implements OnInit {
     });
   }
 
-  createBg() {
-    document.body.style.backgroundImage = 'url("../../assets/images/building02.jpg")';
-    document.body.style.backgroundColor = '#333';
-    document.body.style.backgroundPosition = 'center center';
-    document.body.style.backgroundRepeat = 'no-repeat';
-    document.body.style.backgroundAttachment = 'fixed';
-    document.body.style.backgroundSize = 'cover';
-  }
-
-  logErr(event) {
-    console.log(event);
-  }
-
   activate(tipoFornitore: string) {
     switch (tipoFornitore) {
       case 'PIVA':
@@ -175,4 +162,16 @@ export class SupplierFormComponent implements OnInit {
   get tipoFornitore() {
     return this.supplierForm.get('tipoFornitore');
   }
+
+  /*
+  createBg() {
+    document.body.style.backgroundImage = 'url("../../assets/images/building02.jpg")';
+    document.body.style.backgroundColor = '#333';
+    document.body.style.backgroundPosition = 'center center';
+    document.body.style.backgroundRepeat = 'no-repeat';
+    document.body.style.backgroundAttachment = 'fixed';
+    document.body.style.backgroundSize = 'cover';
+  }
+  */
+
 }
